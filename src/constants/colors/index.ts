@@ -1,0 +1,12 @@
+export enum COLOR {
+  'BLACK' = '#000000',
+  'BLACK_TEXT' = '#000000',
+  'WHITE' = '#FFFFFF',
+  'BACKGROUND_RED' = '#FB1D14',
+  'LIGHT_GRAY' = '#DDDDDD',
+  'TEXT_RED' = '#FC1C15',
+  'WHITE_SMOKE' = '#F5F5F5',
+  'DARK_GREY' = '#454545',
+  'PLACEHOLDER_TEXT' = '#E5D8D8',
+  'SHADOW_COLOR' = '#00000029',
+}
