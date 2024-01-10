@@ -1,7 +1,7 @@
-first you have to install libraries using :
+step 1:
+install libraries using 
 npm install
 
-then
-
-run project using :
+step 2:
+run project using 
 npm run android
