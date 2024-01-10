@@ -7,6 +7,14 @@ type ShadowViewType = {
   children: ReactNode;
   shadowStyle?: StyleProp<ViewStyle>;
 };
+
+/*
+children: Take all the children components,
+shadowStyle: Style for Shadow View
+*/
+
+//ShadowView component is used to give shadow effect to other components
+
 const ShadowView = ({children, shadowStyle}: ShadowViewType) => {
   return (
     <DropShadow style={[styles.shadowStyle, shadowStyle]}>

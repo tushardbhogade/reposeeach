@@ -1,5 +1,10 @@
 import axios, {AxiosError, AxiosRequestConfig} from 'axios';
 
+
+/*
+axios intercepotor created to handle api requests
+*/
+
 export const setAxiosInterceptor = () => {
   const headers = {
     'content-type': 'application/json',

@@ -9,7 +9,7 @@ import React, {ReactElement, ReactNode} from 'react';
 import TextField from '../../atoms/TextField';
 import SearchIcon from '../../../assets/icons/SearchIcon';
 import {COLOR} from '../../../constants/colors';
-import SearchWhiteIcon from '../../../assets/icons/SearchWhiteIcon';
+
 import searchContainerStyle from './style';
 type SearchContainerType = {
   rightIcon?: ReactNode | ReactElement;
@@ -18,9 +18,18 @@ type SearchContainerType = {
   inputStyle?: StyleProp<TextStyle>;
   onRightIconPress?: () => void;
 } & TextInputProps;
+
+/*
+rightIcon: SvgIcon represent as a RightIcon,
+  style: Style for SearchContainer,
+  inputStyle: Style for TextInput,
+  onRightIconPress : Function triggers when click on Right Icon,
+*/
+
+// SearchContainer Component is used to search a text
+
 const SearchContainer = ({
   rightIcon,
-  LeftIcon,
   style,
   inputStyle,
   onRightIconPress = () => {},
@@ -33,7 +42,6 @@ const SearchContainer = ({
       inputStyle={[searchContainerStyle.inputStyle, inputStyle]}
       placeholderTextColor={COLOR.PLACEHOLDER_TEXT}
       rightIcon={rightIcon || <SearchIcon />}
-      leftIcon={LeftIcon ? <SearchWhiteIcon /> : null}
       onRightIconPress={onRightIconPress}
       {...rest}
     />

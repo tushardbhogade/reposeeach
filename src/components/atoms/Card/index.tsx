@@ -8,20 +8,31 @@ import StarIcon from '../../../assets/icons/StarIcon';
 import ShadowView from '../ShadowView';
 
 type CardType = {
-  item: any;
+  owner: any;
+  name: string;
+  language: string;
+  stargazers_count: number;
 };
 
-const Card = ({item}: CardType) => {
-  console.log('item==>', item);
+/*
+owner: used to show the profile image,
+name: used to show repo name,
+language:used to show languages in whhich project is created, stargazers_count,
+stargazers_count: used to show star count
+*/
 
+//Card Component to show the details of the card
+
+const Card = ({owner, name, language, stargazers_count}: CardType) => {
   return (
     <ShadowView>
       <View style={[styles.cardContainer]}>
         <View style={styles.row}>
+          {/* Profile Image View to show the Profile Picture */}
           <View style={styles?.profileImageView}>
-            {item?.owner?.avatar_url ? (
+            {owner?.avatar_url ? (
               <Image
-                source={{uri: item?.owner?.avatar_url}}
+                source={{uri: owner?.avatar_url}}
                 style={styles?.profileImageStyle}
               />
             ) : (
@@ -33,17 +44,18 @@ const Card = ({item}: CardType) => {
               <Text
                 numberOfLines={1}
                 style={{flex: 1, fontWeight: '700', fontSize: 16}}>
-                {item?.name || '-'}
+                {name || '-'}
               </Text>
             </View>
             <View style={styles?.row}>
-              <Text>{item?.language || '-'}</Text>
+              <Text>{language || '-'}</Text>
             </View>
             {/* <Text>Description :{item?.description || '-'}</Text> */}
+            {/* View to Show Star Count */}
             <View style={styles.row}>
               <View style={styles?.row}>
                 <Text style={{fontSize: 14, marginRight: 2, fontWeight: '500'}}>
-                  {item?.stargazers_count}
+                  {stargazers_count}
                 </Text>
                 <StarIcon />
               </View>

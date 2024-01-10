@@ -11,6 +11,16 @@ type PaginatedFlatListType = {
   isResetPage?: boolean;
 };
 
+/*
+list : Array to map a card list,
+  onLoadMore : Function to load more item when we reached end of the list,
+  renderItem : To render a component inside a Flatlist,
+  totalCount : To represent a total count of the list,
+  isResetPage : Boolean to reset a page number,
+*/
+
+//PaginatedFlatList component is used to show list of the card with pagination
+
 const PaginatedFlatList = ({
   list = [],
   onLoadMore = () => {},

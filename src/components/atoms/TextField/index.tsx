@@ -30,6 +30,19 @@ export type TextFieldPropType = {
   isLoading?: boolean;
 } & TextInputProps;
 
+/*
+placeholder: String to give placeholder,
+  style: Style for TextInput,
+  leftIcon: Svg on left side of the TextInput,
+  rightIcon: Svg on right side of the TextInput,
+  rightIconText: String appears on the ight side of the TextInput,
+  errorMessage : String represent a error message,
+  isValid : Boolean to check string is valid or not,
+  inputStyle : Style for the input,
+  onRightIconPress : Function triggers when click on Right Icon,
+  setRef : To Set a ref of the TextInput
+*/
+
 const TextField = ({
   placeholder,
   style,

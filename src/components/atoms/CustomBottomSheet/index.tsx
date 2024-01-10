@@ -26,6 +26,19 @@ type CustomBottomSheetPropType = {
   showHeader?: boolean;
 } & ModalProps;
 
+/*
+showModal : Bololean to show/hide modal ,
+  onDismiss : Function to close a modal,
+  onRequestClose : Function to close a modal,
+  title:  Title of the modal,
+  titleStyle: To give a style to title,
+  hrLineStyle: To give a style to horizontal line,
+  cardStyle: To give a style to card,
+  showHeader :Boolean to show/hide header,
+*/
+
+// CustomBottomSheet Component is used to to show Bottom Sheet Modal
+
 const CustomBottomSheet = ({
   showModal = false,
   onDismiss = () => {},
