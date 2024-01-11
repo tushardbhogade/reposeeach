@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useMemo, useState} from 'react';
 import {
   View,
   StyleSheet,
@@ -64,15 +64,14 @@ const App = () => {
     }
     getSearchResult(seachText, pageNo, perPageSize, sortData)
       .then(res => {
-        let newList: any[] = [];
-        console.log('result---->', JSON.stringify(res?.data));
-        if (pageNo === 0) {
-          newList = [...res?.data?.items];
-        } else {
-          newList = [...cardList, ...res?.data?.items];
-        }
-        setCardList(newList);
-        setTotalCardCount(res?.data?.total_count);
+        setCardList(prevList => {
+          const newList =
+            pageNo === 0
+              ? res?.data?.items
+              : [...prevList, ...res?.data?.items];
+          setTotalCardCount(res?.data?.total_count);
+          return newList;
+        });
         setIsListLoading(false);
       })
       .catch(error => {
@@ -81,19 +80,26 @@ const App = () => {
       });
   };
 
+  const handleTextChange = (e: any) => {
+    setSearchText(e);
+  };
+
   return (
     <View style={styles.container}>
       <SearchContainer
-        onChangeText={e => {
-          console.log('ttt', e);
-          setSearchText(e);
-        }}
+        accessible={true}
+        accessibilityLabel="Search Bar"
+        accessibilityHint="Type to Search"
+        onChangeText={handleTextChange}
         style={styles.searchContainer}
         onRightIconPress={() =>
           getSearchRepo(searchText, 0, pageSize, selectedSortItem)
         }
       />
       <TouchableOpacity
+        accessible={true}
+        accessibilityLabel="Sort Button"
+        accessibilityHint="Click to open a sort modal"
         style={styles.sortButton}
         onPress={() => {
           setShowSortModal(true);
@@ -108,7 +114,7 @@ const App = () => {
           <PaginatedFlatList
             list={cardList}
             renderItem={({item}) => {
-              return <Card item={item} />;
+              return <Card {...item} />;
             }}
             totalCount={totalCardCount}
             onLoadMore={(pageNo: number) => {

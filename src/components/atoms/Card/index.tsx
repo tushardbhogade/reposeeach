@@ -24,6 +24,8 @@ stargazers_count: used to show star count
 //Card Component to show the details of the card
 
 const Card = ({owner, name, language, stargazers_count}: CardType) => {
+  // console.log('owner', owner);
+
   return (
     <ShadowView>
       <View style={[styles.cardContainer]}>

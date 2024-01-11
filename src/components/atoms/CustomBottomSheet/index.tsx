@@ -50,6 +50,8 @@ const CustomBottomSheet = ({
   showHeader = true,
   ...props
 }: CustomBottomSheetPropType) => {
+  console.log('sort modal called');
+
   return (
     <Modal
       onRequestClose={() => {
@@ -60,13 +62,20 @@ const CustomBottomSheet = ({
       transparent={true}
       visible={showModal}
       {...props}>
-      <Pressable style={CustomBottomSheetStyle.container} onPress={onDismiss}>
+      <Pressable
+        style={CustomBottomSheetStyle.container}
+        onPress={onDismiss}
+        accessible={true}
+        accessibilityLabel="Sort Modal">
         <Pressable style={[CustomBottomSheetStyle.card, cardStyle]}>
           {showHeader ? (
             <>
               <View style={CustomBottomSheetStyle.headerView}>
                 <View style={CustomBottomSheetStyle.headerChildrenView}>
                   <TouchableOpacity
+                    accessible={true}
+                    accessibilityLabel="Close Button"
+                    accessibilityHint="Click to close a sort modal"
                     style={{marginRight: 2}}
                     onPress={onDismiss}>
                     <CrossIcon />
